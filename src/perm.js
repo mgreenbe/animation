@@ -14,16 +14,11 @@ const perm = n => {
   }, []);
 };
 
-const items = ["Zero", "One", "Two", "Three", "Four", "Five"];
+//const inverse = p => {
+//  return p.map((_, i) => p.find(j => p[j] === i));
+//};
 
-const colors = [
-  "#0000FF",
-  "#0033FF",
-  "#0066FF",
-  "#0099FF",
-  "#00CCFF",
-  "#00FFFF"
-];
+const items = ["Zero", "One", "Two", "Three", "Four", "Five"];
 
 class Perm extends React.Component {
   constructor() {
@@ -34,23 +29,11 @@ class Perm extends React.Component {
     };
   }
 
-  permute() {
-    this.setState({ p: perm(items.length) });
-  }
-
   render() {
-    const permutedItems = this.state.items.map(
-      (_, i, items) => items[this.state.p[i]]
-    );
-    const permutedColors = this.state.items.map(
-      (_, i) => colors[this.state.p[i]]
-    );
     return (
       <div>
-        <List items={permutedItems} colors={permutedColors} />
-        <button
-          onClick={() => this.setState({ p: perm(permutedItems.length) })}
-        >
+        <List p={this.state.p} items={this.state.items} />
+        <button onClick={() => this.setState({ p: perm(this.state.p.length) })}>
           Shuffle
         </button>
       </div>

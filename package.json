@@ -8,6 +8,7 @@
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
+    "eslint": "^4.1.1",
     "prettier-eslint": "^6.4.1",
     "react-scripts": "1.0.10"
   },
